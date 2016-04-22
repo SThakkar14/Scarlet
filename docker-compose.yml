@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  nginx:
+    build: nginx
+    restart: unless-stopped
+    expose:
+      - "80"
+    ports:
+      - "80:80"
+    links:
+      - web:web
+
+  web:
+    build: web
+    restart: unless-stopped
+    expose:
+      - "8000"
+    command: gunicorn server:app --bind 0.0.0.0:8000

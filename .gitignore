@@ -2,4 +2,4 @@ __pycache__
 *.tmp
 *.iml
 .idea
-ssh-keys
+creds
